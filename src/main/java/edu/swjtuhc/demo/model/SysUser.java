@@ -1,10 +1,17 @@
 package edu.swjtuhc.demo.model;
 
 public class SysUser {
+	int uid;
 	String username;
 	String password;
-	String  studentnum;
-	String phonenum;
+	int  studentnum;
+	int phonenum;
+	public int getUid() {
+		return uid;
+	}
+	public void setUid(int uid) {
+		this.uid = uid;
+	}
 	public String getUsername() {
 		return username;
 	}
@@ -17,16 +24,16 @@ public class SysUser {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getStudentnum() {
+	public int getStudentnum() {
 		return studentnum;
 	}
-	public void setStudentnum(String studentnum) {
+	public void setStudentnum(int studentnum) {
 		this.studentnum = studentnum;
 	}
-	public String getPhonenum() {
+	public int getPhonenum() {
 		return phonenum;
 	}
-	public void setPhonenum(String phonenum) {
+	public void setPhonenum(int phonenum) {
 		this.phonenum = phonenum;
 	}
 	@Override

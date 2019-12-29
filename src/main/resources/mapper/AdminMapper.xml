@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.swjtuhc.demo.mapper.AdminMapper">
+	
+	<insert id="addbook" parameterType="edu.swjtuhc.demo.model.Books">
+		insert into sysuser
+		(booknumber,bookname,num)
+		values
+		(#{booknumber},#{bookname},#{num})
+	</insert>
+	
+	<select id="selectAdminByaccountnum" parameterType="java.lang.String" resultType="edu.swjtuhc.demo.model.Admin">
+		select * from admin
+		where
+		accountnum = #{accountnum}
+	</select>
+	
+	<select id="checkPassword" parameterType="edu.swjtuhc.demo.model.Admin" resultType="edu.swjtuhc.demo.model.Admin">
+		select * from admin
+		where
+		accountnum = #{accountnum} and phonenum = #{phonenum} and password = #{password}
+	</select>
+	
+	<select id="selectBookBybooknumber" parameterType="java.lang.String" resultType="edu.swjtuhc.demo.model.Books">
+		select * from books
+		where
+		booknumber = #{booknumber}
+	</select>
+</mapper>

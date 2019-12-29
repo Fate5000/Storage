@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.swjtuhc.demo.model.SysUser;
+import edu.swjtuhc.demo.model.Yanzheng;
 import edu.swjtuhc.demo.service.UserService;
 import net.sf.json.JSONObject;
 
@@ -23,4 +24,24 @@ public class UserController {
 	
 		return result;
 	}
+	
+	
+	@RequestMapping("/login")
+	public  JSONObject login(SysUser user) {
+		JSONObject result = new JSONObject();
+		
+		int i = userService.login(user);
+		result.put("state", i);
+		
+		return result;
+	}
+	
+	
+	@RequestMapping("/findpassword")
+	public  JSONObject findpassword(Yanzheng find) {
+		JSONObject result = new JSONObject();
+		
+		return result;
+	}
+	
 }
