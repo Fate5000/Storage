@@ -2,6 +2,7 @@ package edu.swjtuhc.demo.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import edu.swjtuhc.demo.model.Brecord;
 import edu.swjtuhc.demo.model.SysUser;
 import edu.swjtuhc.demo.model.Yanzheng;
 
@@ -15,5 +16,8 @@ public interface UserMapper {
 	public int checkPassword(SysUser user);
 	
 	public int findPassword(Yanzheng find);
-
+	
+	public Brecord selectstudentByStudentnum(int studentnum);
+	
+	public int selsetbrecordByStudentnum(Brecord student);
 }

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import edu.swjtuhc.demo.model.Brecord;
 import edu.swjtuhc.demo.model.SysUser;
 import edu.swjtuhc.demo.model.Yanzheng;
 import edu.swjtuhc.demo.service.UserService;
@@ -44,4 +45,13 @@ public class UserController {
 		return result;
 	}
 	
+	
+	@RequestMapping("/brecord")
+	public JSONObject brecord(Brecord student) {
+		JSONObject result = new JSONObject();
+		
+		int i = userService.brecord(student);
+		result.put("state", i);
+		return  result;
+	}
 }

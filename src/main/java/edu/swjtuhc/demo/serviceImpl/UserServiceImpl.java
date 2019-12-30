@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import edu.swjtuhc.demo.mapper.UserMapper;
-import edu.swjtuhc.demo.model.Books;
+import edu.swjtuhc.demo.model.Brecord;
 import edu.swjtuhc.demo.model.SysUser;
 import edu.swjtuhc.demo.model.Yanzheng;
 import edu.swjtuhc.demo.service.UserService;
@@ -55,8 +55,17 @@ public class UserServiceImpl implements UserService{
 		}
 
 		@Override
-		public int addbook(Books book) {
+		public int brecord(Brecord student) {
 			// TODO Auto-generated method stub
-			return 0;
+		
+			Brecord studentnum0 = userMapper.selectstudentByStudentnum(student.getStudentnum());
+			int i = 1;
+			if(studentnum0!=null) {
+				i = userMapper.selsetbrecordByStudentnum(student);
+			}else {
+				i = 2;
+			}
+			return i;
 		}
+
 	}

@@ -32,7 +32,7 @@ public class AdminController {
 		JSONObject result = new JSONObject();
 		
 		int i = adminService.addbook(book);
-		result.put("state", 1);
-		return null;
+		result.put("state", i);
+		return result;
 	}
 }
