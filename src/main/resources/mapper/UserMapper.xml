@@ -26,13 +26,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	
-	<select id="selectbrecord" resultType="edu.swjtuhc.demo.model.Brecord">
+	<select id="selectbrecord" parameterType="java.lang.String" resultType="edu.swjtuhc.demo.model.Brecord">
 		select * from brecord
 		where
 		username = #{username}
 	</select>
 	
-	<select id="selectrrecord" resultType="edu.swjtuhc.demo.model.Rrecord">
+	<select id="selectrrecord" parameterType="java.lang.String" resultType="edu.swjtuhc.demo.model.Rrecord">
 		select * from rrecord
 		where
 		username = #{username}

@@ -21,4 +21,5 @@ public interface UserMapper {
 	public Rrecord selectrrecord(String username);
 	
 	public int selectgetpassword(SysUser user);
+	
 }

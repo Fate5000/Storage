@@ -3,6 +3,19 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="edu.swjtuhc.demo.mapper.AdminMapper">
+
+	<delete id="deleteuser" parameterType="edu.swjtuhc.demo.model.SysUser">
+		delete  from sysuser 
+		where
+		username = #{username}
+	</delete>
+
+	<update id="updatepassword" parameterType="edu.swjtuhc.demo.model.SysUser">
+		update sysuser		
+		set password = #{password}
+		where
+		username = #{username}	
+		</update>
 	
 	<select id="selectAdminByAccountnum" parameterType="java.lang.String" resultType="edu.swjtuhc.demo.model.Admin">
 		select * from admin
@@ -10,9 +23,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		accountnum = #{accountnum}
 	</select>
 	
-	<select id="selectBookBybooknumber" parameterType="java.lang.String" resultType="edu.swjtuhc.demo.model.Books">
-		select * from books
+	<select id="selectUserByUsername" parameterType="java.lang.String" resultType="edu.swjtuhc.demo.model.SysUser">
+		select * from sysuser
 		where
-		booknumber = #{booknumber}
+		username = #{username}
 	</select>
+
 </mapper>
