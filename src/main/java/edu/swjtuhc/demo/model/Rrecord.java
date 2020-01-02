@@ -1,6 +1,6 @@
 package edu.swjtuhc.demo.model;
 
-public class Brecord {
+public class Rrecord {
 	String booknumber;
 	String bookname;
 	String username;
@@ -34,7 +34,5 @@ public class Brecord {
 		return "Brecord [booknumber=" + booknumber + ", bookname=" + bookname + ", username=" + username + ", num="
 				+ num + "]";
 	}
-	
-	
 	
 }

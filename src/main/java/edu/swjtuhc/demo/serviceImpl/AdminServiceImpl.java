@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 
 import edu.swjtuhc.demo.mapper.AdminMapper;
 import edu.swjtuhc.demo.model.Admin;
-import edu.swjtuhc.demo.model.Books;
 import edu.swjtuhc.demo.service.AdminService;
 
 @Service
@@ -20,25 +19,21 @@ public class AdminServiceImpl implements AdminService{
 		
 		Admin admin0 = adminMapper.selectAdminByAccountnum(admin.getAccountnum());
 		int i = 1;
-		if(admin0!=null) {
-			i = adminMapper.checkPassword(admin0);
-		}else {
+		if(admin0==null) {
 			i = 2;
+		}else {
+			if(admin0.getPhonenum()!=admin.getPhonenum()) {
+				i = 3;
+			}else {
+				if(admin0.getPassword().equals(admin.getPassword())) {
+					i = 1;
+				}else {
+					i = 4;
+				}
+			}
+			
 		}
-		return i;
+		return i ;
 	}
 
-	@Override
-	public int addbook(Books book) {
-		// TODO Auto-generated method stub
-		
-		Books book0 = adminMapper.selectBookBybooknumber(book.getBooknumber());
-		int i = 1;
-		if(book0==null) {
-			i = adminMapper.addbook(book);
-		}else {
-			i = 2;
-		}
-		return i;
-	}
 }

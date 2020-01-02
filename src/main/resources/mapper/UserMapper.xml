@@ -2,35 +2,45 @@
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="edu.swjtuhc.demo.mapper.UserMapper">
-	<insert id="addbook" parameterType="edu.swjtuhc.demo.model.Books">
+<mapper namespace="edu.swjtuhc.demo.mapper.UserMapper" >
+
+	<insert id="insertUer" parameterType="edu.swjtuhc.demo.model.SysUser">
 		insert into sysuser
-		(booknumber,bookname,num)
+		(username,password,studentnum,phonenum)
 		values
-		(#{booknumber},#{bookname},#{num})
+		(#{username},#{password},#{studentnum},#{phonenum})
 	</insert>
 	
+	<update id="updatepassword" parameterType="edu.swjtuhc.demo.model.SysUser">
+		update sysuser		
+		set password = #{password}
+		where
+		username = #{username}	
+		</update>
+
+
 	<select id="selectUserByUsername" parameterType="java.lang.String" resultType="edu.swjtuhc.demo.model.SysUser">
 		select * from sysuser
 		where
 		username = #{username}
 	</select>
 	
-	<select id="checkPassword" parameterType="edu.swjtuhc.demo.model.SysUser" resultType="edu.swjtuhc.demo.model.SysUser">
-		select * from sysuser
-		where
-		username = #{username} and password = #{password}
-	</select>
 	
-	<select id="selectstudentByStudentnum" parameterType="Integer" resultType="edu.swjtuhc.demo.model.Brecord">
+	<select id="selectbrecord" resultType="edu.swjtuhc.demo.model.Brecord">
 		select * from brecord
 		where
-		studentnum = #{studentnum}
+		username = #{username}
 	</select>
 	
-	<select id="selsetbrecordByStudentnum" parameterType="edu.swjtuhc.demo.model.Brecord" resultType="edu.swjtuhc.demo.model.Brecord">
-		select * from brecord
+	<select id="selectrrecord" resultType="edu.swjtuhc.demo.model.Rrecord">
+		select * from rrecord
 		where
-		studentnum = #{studentnum}
+		username = #{username}
+	</select>
+	
+	<select id="selectgetpassword" parameterType="java.lang.String" resultType="edu.swjtuhc.demo.model.SysUser">
+		select password from sysuser
+		where
+		username = #{username}
 	</select>
 </mapper>
